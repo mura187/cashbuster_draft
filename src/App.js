@@ -7,7 +7,8 @@ import STATIC_DATA_TABLE from './constants/mainTable';
 import Table from './components/Table/Table';
 import Sidebar from './components/Sidebar/Sidebar';
 import BarChart from './components/D3Components/BarChart/BartChart';
-
+import { BrowserRouter,Route , NavLink, Switch } from 'react-router-dom'; 	
+import Navigation from './components/Navigation/Navigation'
 import Aux from './hoc/Aux';
 import d3 from 'd3';
 import Chart from './components/chart';
@@ -50,6 +51,20 @@ const tableValues = products.map((product) => {
 console.log(tableValues);
 var dataset = [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ];
 var el = d3.select('#d3Ex').selectAll('p').data(dataset).enter().append('p').text('Suka');
+const Clients = () => {
+    return  (
+        <div>
+            <h2>This is Clients page</h2>
+        </div>
+    )
+}
+const Home = () => {	
+    return  (
+        <div>
+            <h1>This is Home page!!</h1>
+        </div>
+    )
+}
 console.log(el, 'el');
 class App extends Component {
 	render() {
@@ -57,7 +72,8 @@ class App extends Component {
 			<div className="App">
 				<Layout>
 					<Sidebar />
-					<Layout style={{ marginLeft: 200 }}>
+						<Navigation />
+						<Layout style={{ marginLeft: 200 }}>
 						<Header style={{ background: '#fff', padding: 0 }} />
 						<Content style={{ margin: '24px 16px 0' }}>
 							<div style={{ padding: 24, background: '#fff', minHeight: 360 }}>
@@ -66,6 +82,18 @@ class App extends Component {
 						</Content>
 						<Content>
 							<BarChart />
+
+						<BrowserRouter> 
+						<div>
+						<Switch>
+							<Route path="/" component={Home} exact/>
+							<Route path="/clients" component={Clients} />
+							<Route path="/orders" component={Header} /> 
+						</Switch>
+						</div>
+						</BrowserRouter>
+						
+					
 						</Content>
 						<Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
 					</Layout>

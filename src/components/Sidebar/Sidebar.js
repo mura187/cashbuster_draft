@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { NavLink, withRouter } from 'react-router-dom';
-import { Layout, Menu, Icon } from 'antd';
+//import { BrowserRouter,Route, Switch } from 'react-router-dom';
+import { Layout, Menu, Icon } from 'antd'; 
 const Sider = Layout.Sider;
 class Sidebar extends Component {
 	render() {
@@ -9,31 +9,27 @@ class Sidebar extends Component {
 				<div className="logo" />
 				<Menu theme="dark" mode="inline">
 					<Menu.Item key="dashboard">
-						<NavLink to="/orders">
 							<Icon type="area-chart" />
 							<span>Заказы</span>
-						</NavLink>
+						
 					</Menu.Item>
 					<Menu.Item key="clients">
-						<NavLink to="/clients">
 							<Icon type="team" />
 							<span>Клиенты</span>
-						</NavLink>
+						
 					</Menu.Item>
 					<Menu.Item key="employees">
-						<NavLink to="/orders">
 							<Icon type="idcard" />
 							<span>Сотрудники</span>
-						</NavLink>
+						
 					</Menu.Item>
 					<Menu.Item key="stats">
-						<NavLink to="/cli">
 							<Icon type="appstore-o" />
 							<span>Статистика</span>
-						</NavLink>
+						
 					</Menu.Item>
-				</Menu>
-			</Sider>
+				</Menu>  
+			</Sider> 
 		);
 	}
 }
